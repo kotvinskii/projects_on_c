@@ -1,0 +1,218 @@
+#include <iostream>
+#include <Windows.h>
+#include <numbers>
+#include "functions_calculator.h"
+
+int main() {
+    SetConsoleOutputCP(1251);
+    SetConsoleCP(1251);
+    bool flag = true;
+    int operation;
+    double a, b;
+    while (flag) {
+        again:
+        std::cout << "Выберите операцию, которую хотите сделать:                                                        \
+                      1. Сложение двух чисел(введите число 1)                                                           \
+                      2. Вычитание двух чисел(введите число 2)                                                          \
+                      3. Умножение двух чисел(введите число 3)                                                          \
+                      4. Деление двух чисел(введите число 4)                                                            \
+                      5. Возведение в степень(введите число 5)                                                          \
+                      6. Вычислить факториал числа(введите число 6)                                                     \
+                      7. Вычислить квадратный корень числа(введите число 7)                                             \
+                      8. Деление двух чисел с остатком(введите число 8)                                                 \
+                      9. Вычислить натуральный логарифм для числа(введите число 9)                                      \
+                      10. Вычислить десятичный логарифм для введенного числа(введите число 10)                          \
+                      11. Вычислить синус числа(введите число 11)                                                       \
+                      12. Вычислить косинус числа(введите число 12)                                                     \
+                      13. Вычислить тангенс числа(введите число 13)                                                     \
+                      14. Вычислить арксинус числа(введите число 14)                                                    \
+                      15. Вычислить арккосинус числа(введите число 15)                                                  \
+                      16. Вычислить арктангенс числа(введите число 16)" << std::endl;                                   
+        std::cin >> operation;
+        if (operation < 1 or operation > 16) {
+            flag = false;
+            std::cout << "Программа завершена" << std::endl;
+        }
+        else {
+            if (operation == 1) {
+                std::cout << "Введите первое число: ";
+                std::cin >> a;
+                std::cout << "Введите второе число: ";
+                std::cin >> b;
+                std::cout << "Результат операции: " << sum_numbers(a, b) << std::endl;
+                goto again;
+            }
+            else if (operation == 2) {
+                std::cout << "Введите первое число: ";
+                std::cin >> a;
+                std::cout << "Введите второе число: ";
+                std::cin >> b;
+                std::cout << "Результат операции: " << differ(a, b) << std::endl;
+                goto again;
+            }
+            else if (operation == 3) {
+                std::cout << "Введите первое число: ";
+                std::cin >> a;
+                std::cout << "Введите второе число: ";
+                std::cin >> b;
+                std::cout << "Результат операции: " << multiply(a, b) << std::endl;
+                goto again;
+            }
+            else if (operation == 4) {
+                std::cout << "Введите первое число: ";
+                std::cin >> a;
+                std::cout << "Введите второе число: ";
+                std::cin >> b;
+                if (b == 0) {
+                    std::cout << "Нельзя делить на 0!" << std::endl;
+                }
+                else {
+                    std::cout << "Результат операции" << division(a, b) << std::endl;
+                    goto again;
+                }
+            }
+            else if (operation == 5) {
+                std::cout << "Введите первое число: ";
+                std::cin >> a;
+                std::cout << "Введите второе число: ";
+                std::cin >> b;
+                std::cout << "Результат операции: " << power(a, b) << std::endl;
+                goto again;
+            }
+            else if (operation == 6) {
+                std::cout << "Введите число: ";
+                std::cin >> a;
+                if (a == 0) {
+                    std::cout << "Результат операции: " << 1 << std::endl;
+                }
+                else if (a < 0) {
+                    std::cout << "Нельзя вычислить факториал отрицательного числа! " << std::endl;
+                }
+                else {
+                    std::cout << "Результат операции:" << factorial(a) << std::endl;
+                    goto again;
+                };
+            }
+            else if (operation == 7) {
+                std::cout << "Введите число: ";
+                std::cin >> a;
+                if (a < 0) {
+                    std::cout << "Нельзя вычислить квадратный корень отрицательного числа!" << std::endl;
+                }
+                else {
+                    std::cout << "Результат операции: " << sqrt(a) << std::endl;
+                    goto again;
+                }
+            }
+            else if (operation == 8) {
+                std::cout << "Введите первое число: ";
+                std::cin >> a;
+                std::cout << "Введите второе число: ";
+                std::cin >> b;
+                if (b == 0) {
+                    std::cout << "Нельзя делить на 0!" << std::endl;
+                }
+                else {
+                    std::cout << "Результат операции" << ost(a, b) << std::endl;
+                    goto again;
+                }
+            }
+            else if (operation == 9) {
+                std::cout << "Введите число: ";
+                std::cin >> a;
+                if (a <= 0) {
+                    std::cout << "Для этого числа не получится посчитать логарифм!" << std::endl;
+                }
+                else {
+                    std::cout << "Результат операции: " << ln(a) << std::endl;
+                    goto again;
+
+                }
+            }
+            else if (operation == 10) {
+                std::cout << "Введите число: ";
+                std::cin >> a;
+                if (a <= 0) {
+                    std::cout << "Для этого числа не получится посчитать логарифм!" << std::endl;
+                }
+                else {
+                    std::cout << "Результат операции: " << lg(a) << std::endl;
+                    goto again;
+
+                }
+            }
+            else if (operation == 11) {
+                std::cout << "Введите число: ";
+                std::cin >> a;
+                if (-1 <= a <= 1) {
+                    std::cout << "Результат операции: " << sing(a) << std::endl;
+                    goto again;
+                }
+                else {
+                    std::cout << "Вычислить синус при таком значении невозможно!" << std::endl;
+                    goto again;
+                }
+
+            }
+            else if (operation == 12) {
+                std::cout << "Введите число: ";
+                std::cin >> a;
+                if (-1 <= a <= 1) {
+                    std::cout << "Результат операции: " << cosg(a) << std::endl;
+                    goto again;
+                }
+                else {
+                    std::cout << "Вычислить косинус при таком значении невозможно!" << std::endl;
+                    goto again;
+                }
+            }
+            else if (operation == 13) {
+                std::cout << "Введите число: ";
+                std::cin >> a;
+                if (a == 1,57 or a == -1,57) {
+                    std::cout << "Вычислить тангенс при таком значении невозможно(pi/2 -pi/2)!";
+                }
+                std::cout << "Результат операции: " << tang(a) << std::endl;
+                goto again;
+            }
+            else if (operation == 14) {
+
+                std::cout << "Введите число: ";
+                std::cin >> a;
+                if (-1 <= a <= 1) {
+                    std::cout << "Результат операции: " << asing(a) << std::endl;
+                    goto again;
+
+                }
+                else {
+                    std::cout << "Вычислить арксинус при таком значении невозможно!" << std::endl;
+                    goto again;
+                }
+            }
+            else if (operation == 15){
+                 std::cout << "Введите число: ";
+                 std::cin >> a;
+                 if (-1 <= a <= 1) {
+                     std::cout << "Результат операции: " << acosg(a) << std::endl;
+                     goto again;
+                 }
+                 else {
+                     std::cout << "Вычислить арккосинус при таком значении невозможно!" << std::endl;
+                     goto again;
+                 }
+                 goto again;
+            }
+            else if (operation == 16) {
+                 std::cout << "Введите число: ";
+                 std::cin >> a;
+                 std::cout << "Результат операции: " << atang(a) << std::endl;
+                 goto again;
+            }
+
+        }
+
+    }
+
+    system("pause");
+    return 0;
+
