@@ -1,0 +1,38 @@
+// Объявление всех арифметических операций, которые возможны при вычислении
+#pragma once
+#ifndef FUNCTIONS_CALCULATOR.H
+
+extern double sum_numbers(double a, double b); // сумма двух чисел
+
+extern int multiply(int a, int b); // произведение двух чисел
+
+extern double differ(double a, double b); // разница двух чисел
+
+extern double division(double a, double b);	// деление двух чисел
+
+extern double power(double a, double b); // возведение a в степень b
+
+extern int num_sqrt(int a);	// корень из числа a
+
+extern int factorial(int a); // факториал числа a
+
+
+extern int ost(int a, int b); // остаток от деления a на b
+
+extern int ln(int a); // натуральное логарифмирование числа a
+
+extern int lg(int a); // десятичное логарифмирование числа a
+
+extern float sing(float a); // вычисление sin a
+
+extern float cosg(float a); // вычисление cos a
+
+extern float tang(float a); // вычисление tg a
+
+extern float asing(float a); // вычисление arcsin a
+
+extern float acosg(float a);	// вычисление arccos a
+
+extern float atang(float a);	// вычисление arctg a
+
+#endif
