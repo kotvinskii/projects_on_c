@@ -1,0 +1,81 @@
+// Файл реализации всех арифметических операций
+#include "functions_calculator.h"
+#include <cmath>
+#include <string>
+double sum_numbers(double a, double b) {
+	return a + b;
+}
+
+int multiply(int a, int b) {
+	return a * b;
+}
+
+double differ(double a, double b) {
+	return a - b;
+}
+
+double division(double a, double b) {
+	return a / b;
+}
+
+double power(double a, double b) {
+	return double(pow(a, b));
+}
+
+int factorial(int a) {
+	again:
+	if (a == 0) {
+		return -1;
+	}
+	else if (a < 0) {
+		goto again;
+	}
+	else {
+		int res = 1;
+		for (a; a > 0; a--) {
+			res *= a;
+		}
+		return res;
+
+	}
+}
+
+int num_sqrt(int a) {
+	return pow(a, 0.5);
+}
+
+int ost(int a, int b) {
+	return a % b;
+}
+
+int lg(int a) {
+	return std::log10(a);
+}
+
+int ln(int a) {
+	return std::log(a);
+}
+
+float sing(float a) {
+	return sin(a);
+}
+
+float cosg(float a) {
+	return cos(a);
+}
+
+float tang(float a) {
+	return tan(a);
+}
+
+float asing(float a) {
+	return asin(a);
+}
+
+float acosg(float a) {
+	return acos(a);
+}
+
+float atang(float a) {
+	return atan(a);
+}
